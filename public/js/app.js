@@ -6,9 +6,12 @@ socket.on('connect', function(){
 
 });
 
+//targets:
+//target by id or name use $
+//target by class use '.classname'
+
 socket.on('message', function(message){
-	console.log('New mesage:');
-	console.log(message.text);
+	jQuery('.messages').append('<p>'+message.text+'</p>'); //target by class
 });
 
 //handles submitting a new message
