@@ -23,9 +23,11 @@ socket.on('connect', function(){
 
 socket.on('message', function(message){
 	var ts = moment.utc(message.timestamp); //convert from UTC
-	var $message = jQuery('.messages');
+	var $messages = jQuery('.messages');
+	$message = jQuery('<li class="list-group-item"></li>');
 	$message.append('<p><strong>'+message.name + ' ' + ts.local().format('h:mm:ss a')+'</strong></p>')
 	$message.append('<p>' + message.text + '</p>');
+	$messages.append($message);
 });
 
 //handles submitting a new message
